@@ -60,6 +60,10 @@ const setQuerry = (e) => {
 };
 
 const getResult = (cityName) => {
+  if (searchBar.value.trim() === "") {
+    alert("please do not leave the input field blank!");
+    return;
+  }
   let querry = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}&units=metric`;
   fetch(querry)
     .then((weather) => {
